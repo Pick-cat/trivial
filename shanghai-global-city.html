@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上海为什么像"国际都市" · 五个切面（附行程对照）</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1f2430; --sub:#5b6472;
+    --accent:#e0435c; --accent2:#2f6fed; --gold:#c9962e;
+    --line:#e6e9ef; --soft:#f1f4f9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;padding:28px 16px;}
+  .wrap{max-width:900px;margin:0 auto;}
+  .backbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+  .backlink{display:inline-block;font-size:13.5px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 14px;}
+  .backlink:hover{border-color:var(--accent2);}
+  header{text-align:center;margin-bottom:26px;}
+  header h1{font-size:29px;letter-spacing:1px;}
+  header p{color:var(--sub);margin-top:8px;font-size:14px;}
+  .tag{display:inline-block;background:var(--accent2);color:#fff;font-size:12px;padding:2px 12px;border-radius:20px;margin-bottom:10px;letter-spacing:2px;}
+  h2{font-size:20px;margin:32px 0 14px;display:flex;align-items:center;gap:8px;}
+  h2::before{content:"";width:4px;height:20px;background:var(--accent);border-radius:2px;display:inline-block;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(20,30,60,.04);}
+  .card p{font-size:14.8px;}
+  .card p+p{margin-top:9px;}
+  .card small{display:block;color:var(--sub);font-size:12.8px;margin-top:8px;}
+  .facet{display:flex;gap:12px;align-items:flex-start;}
+  .badge{flex:0 0 30px;height:30px;border-radius:9px;background:var(--accent2);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .facet h3{font-size:16.5px;margin-bottom:6px;}
+  .facet .body{flex:1;}
+  b.hl{color:var(--accent);}
+  .svgbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 8px 0;margin-bottom:14px;}
+  .svgbox svg{width:100%;height:auto;display:block;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:2px;}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--sub);flex:1 1 200px;}
+  .chip b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px;}
+  table{width:100%;border-collapse:collapse;font-size:13.8px;background:#fff;}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;}
+  th{background:var(--soft);font-weight:600;}
+  td.d{white-space:nowrap;color:var(--accent2);font-weight:600;}
+  .yes{color:#1a7f5a;font-weight:600;}
+  .opt{color:#a8761a;font-weight:600;}
+  .addon{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+  .addon .card{margin-bottom:0;}
+  .addon h3{font-size:16px;margin-bottom:6px;}
+  ul.food li{margin:5px 0 5px 18px;font-size:14.5px;}
+  footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:34px;}
+  footer a{color:var(--accent2);text-decoration:none;}
+  .lead{border-left:4px solid var(--accent);}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+  .duo .col{border:1px solid var(--line);border-radius:11px;padding:12px 14px;}
+  .duo .col.a{background:#f3f7ff;border-color:#dbe6fb;}
+  .duo .col.k{background:#fff7ef;border-color:#fae2cc;}
+  .duo h4{font-size:13.5px;margin-bottom:6px;}
+  .duo li{font-size:13.6px;margin:4px 0 4px 16px;line-height:1.6;}
+  .duo .m{font-size:11.6px;color:var(--sub);display:block;margin-top:1px;}
+  .fe{font-size:15.5px;font-weight:700;margin-bottom:2px;}
+  .ok{color:#1a7f5a;font-weight:700;}
+  .add{color:#a8761a;font-weight:700;}
+  .lg{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--sub);margin-top:9px;}
+  .lg b{color:var(--ink);}
+  .fullgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:12px;}
+  .fbox{border:1px solid var(--line);border-radius:11px;padding:12px 14px;background:#fff;}
+  .fbox h4{font-size:14px;margin-bottom:7px;}
+  .fbox li{font-size:13.3px;margin:3px 0 3px 15px;line-height:1.62;}
+  .fbox li.s{list-style:none;margin-left:0;font-size:12.2px;color:var(--sub);}
+  .st{display:inline-block;font-size:10.6px;padding:1px 7px;border-radius:9px;margin-left:5px;vertical-align:1.5px;white-space:nowrap;font-weight:600;}
+  .st.ok{background:#e6f5ee;color:#1a7f5a;}
+  .st.add{background:#fff2dd;color:#a8761a;}
+  .st.no{background:#f1f2f5;color:#6b7280;}
+  .cnt{display:inline-block;font-size:10.6px;padding:1px 7px;border-radius:9px;margin-left:5px;vertical-align:1.5px;white-space:nowrap;font-weight:600;background:#eef2fb;color:#3d5aa8;}
+  td.nw{white-space:nowrap;}
+  @media(max-width:640px){.duo{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="backbar">
+  <a class="backlink" href="上海5日游行程规划-10月2日至6日.html">← 返回行程规划</a>
+  <span style="font-size:12.5px;color:var(--sub);">延伸阅读 · 与 10/1–10/5 行程配套</span>
+</div>
+
+<header>
+  <span class="tag">SHANGHAI · 全球都市观察</span>
+  <h1>上海为什么像"国际都市"</h1>
+  <p>不靠某一个地标，而靠<b>密度的集中</b>：建筑 / 商业 / 街区 / 艺术 / 连接 五个切面 —— 每个切面都标了"你们行程里能看到的部分"</p>
+</header>
+
+<div class="card lead">
+  <p><b>一句话：</b>外滩那排 1920–30 年代的老楼，是<b class="hl">被动开放</b>留下的国际化遗产；对岸陆家嘴的天际线，是<b class="hl">主动开放</b>接进全球资本和设计的结果。<b>一江两岸，一半是被动开放、一半是主动开放，全世界只有上海能一眼看全。</b>这就是它"国际都市"感最直观的来源。</p>
+</div>
+
+<div class="svgbox">
+<svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <!-- 顶部标注 -->
+  <text x="30" y="28" font-size="14" font-weight="700" fill="#1f2430">外滩 · 万国建筑群</text>
+  <text x="30" y="47" font-size="11.5" fill="#5b6472">1920–30s｜汇丰大楼 / 江海关 / 和平饭店</text>
+  <text x="655" y="28" font-size="14" font-weight="700" fill="#1f2430" text-anchor="end">陆家嘴 · 现代天际线</text>
+  <text x="655" y="47" font-size="11.5" fill="#5b6472" text-anchor="end">1990s 起｜东方明珠 / 金茂 / 环球金融 / 上海中心</text>
+
+  <!-- 地面 -->
+  <line x1="30" y1="190" x2="655" y2="190" stroke="#d8dde7" stroke-width="1.5"/>
+
+  <!-- 左岸：外滩老建筑 -->
+  <g stroke="#c9b48a" stroke-width="1">
+    <rect x="30" y="120" width="34" height="70" fill="#e8dcc0"/>
+    <rect x="68" y="95" width="30" height="95" fill="#e2d3b3"/>
+    <rect x="102" y="130" width="40" height="60" fill="#efe6cf"/>
+    <rect x="146" y="78" width="32" height="112" fill="#e8dcc0"/>
+    <rect x="182" y="118" width="36" height="72" fill="#e2d3b3"/>
+    <rect x="222" y="98" width="30" height="92" fill="#e8dcc0"/>
+    <rect x="256" y="124" width="34" height="66" fill="#efe6cf"/>
+    <!-- 江海关钟楼 -->
+    <rect x="156" y="58" width="12" height="20" fill="#d9c9a8"/>
+  </g>
+  <!-- 汇丰穹顶 -->
+  <path d="M112,130 Q122,110 132,130 Z" fill="#c9962e"/>
+  <!-- 钟面 -->
+  <circle cx="162" cy="68" r="5" fill="#ffffff" stroke="#a8761a" stroke-width="1.5"/>
+  <!-- 窗线 -->
+  <g stroke="#c9b48a" stroke-width="1" opacity="0.55">
+    <line x1="36" y1="140" x2="58" y2="140"/><line x1="36" y1="158" x2="58" y2="158"/>
+    <line x1="74" y1="118" x2="92" y2="118"/><line x1="74" y1="140" x2="92" y2="140"/><line x1="74" y1="162" x2="92" y2="162"/>
+    <line x1="152" y1="100" x2="172" y2="100"/><line x1="152" y1="124" x2="172" y2="124"/><line x1="152" y1="148" x2="172" y2="148"/>
+    <line x1="228" y1="120" x2="246" y2="120"/><line x1="228" y1="142" x2="246" y2="142"/>
+  </g>
+
+  <!-- 黄浦江 -->
+  <path d="M310,190 C304,150 316,120 310,86 L390,86 C384,120 396,150 390,190 Z" fill="#cfe3f7" stroke="#a9c8e8" stroke-width="1"/>
+  <text x="350" y="140" font-size="12.5" fill="#4a7bb5" letter-spacing="4" text-anchor="middle" transform="rotate(-90 350 140)">黄浦江</text>
+
+  <!-- 右岸：陆家嘴 -->
+  <!-- 东方明珠 -->
+  <rect x="404" y="70" width="8" height="120" fill="#b9c9e8"/>
+  <rect x="396" y="168" width="24" height="22" fill="#cddcf2"/>
+  <circle cx="408" cy="112" r="12" fill="#2f6fed" opacity="0.85"/>
+  <circle cx="408" cy="88" r="9" fill="#2f6fed" opacity="0.85"/>
+  <circle cx="408" cy="70" r="5" fill="#2f6fed" opacity="0.9"/>
+  <!-- 上海中心（螺旋，最高） -->
+  <line x1="461" y1="26" x2="461" y2="12" stroke="#2f6fed" stroke-width="2"/>
+  <polygon points="452,26 470,26 476,190 446,190" fill="#2f6fed" opacity="0.9"/>
+  <!-- 金茂 -->
+  <rect x="500" y="42" width="6" height="12" fill="#6f9bea"/>
+  <polygon points="494,54 512,54 515,190 491,190" fill="#6f9bea" opacity="0.95"/>
+  <!-- 环球金融中心（开瓶器） -->
+  <rect x="528" y="48" width="26" height="142" fill="#8fb4f5"/>
+  <polygon points="536,66 552,66 548,82 540,82" fill="#ffffff"/>
+  <!-- 方楼 -->
+  <rect x="566" y="110" width="34" height="80" fill="#cfdcf5" stroke="#a9bfe0"/>
+  <rect x="608" y="132" width="30" height="58" fill="#dde7f8" stroke="#b9c9e8"/>
+
+  <!-- 底部说明 -->
+  <text x="168" y="216" font-size="12" fill="#5b6472" text-anchor="middle">西岸 · 被动开放（租界时代的国际资本）</text>
+  <text x="524" y="216" font-size="12" fill="#5b6472" text-anchor="middle">东岸 · 主动开放（接入全球资本与设计）</text>
+  <line x1="312" y1="206" x2="312" y2="196" stroke="#d8dde7"/>
+  <line x1="388" y1="206" x2="388" y2="196" stroke="#d8dde7"/>
+</svg>
+</div>
+
+<h2>五个切面：国际化的证据链</h2>
+
+<div class="card">
+  <div class="facet">
+    <div class="badge">①</div>
+    <div class="body">
+      <h3>建筑 · 一条江的两岸是一部对照史</h3>
+      <p>外滩「万国建筑群」：汇丰银行大楼（1923，今浦东发展银行）、江海关大楼（1927，带钟楼）、和平饭店（1929，原沙逊大厦）、中国银行大楼（1937，唯一由中国人自己设计建造的一栋）——哥特、古典、装饰艺术风格混在同一排，当年由英、法、美、德各国建筑事务所设计，本身就是殖民时代的国际化遗产。</p>
+      <p>对岸陆家嘴：金茂大厦（1999，美国 SOM）、环球金融中心（2008，美国 KPF）、上海中心（2016，美国 Gensler，632 米、中国第一高楼）。<b>由"被外国人设计"到"请外国人设计"，是两种完全不同的国际化。</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="facet">
+    <div class="badge">②</div>
+    <div class="body">
+      <h3>商业 · 全球公司把中国总部放在这里</h3>
+      <p>南京西路（静安嘉里中心、恒隆、中信泰富）与陆家嘴，聚集了中国规模最大的外企总部群：外资法人银行、投行、律所、四大会计师事务所都在这两片上；南京东路的市百一店、永安百货（1918）则是中国最早的现代零售。</p>
+      <p>判断标准很直观——<b>在这些商圈，用英语、日语、韩语点单基本都能通。</b>进博会（国家会展中心"四叶草"）永久举办地也在这，是全球品牌进入中国的第一站。</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="facet">
+    <div class="badge">③</div>
+    <div class="body">
+      <h3>街区生活 · 最容易被游客忽略、但最能说明问题的一层</h3>
+      <p>武康路、安福路、五原路一带的咖啡馆与买手店密度，让上海成为<b>全球咖啡馆门店数最多的城市</b>（2025 年 10336 家，全市每 2000 多人就有一家；静安区每平方公里约 57 家，南京西路上几乎每 30 米一家）。</p>
+      <p>古北、碧云则是 1990 年代就成形的国际社区——外籍住宅、国际学校、进口超市聚集。新天地、张园这类"石库门改造"，被全球城市研究当作保护与再生的样本写进案例。<b>你们 Day 4 走的就是这一层。</b></p>
+      <small>补一句实话：论人均喝咖啡的杯数，首尔（约 190 杯/年）、东京（200 杯以上）都高于上海——上海赢的是"店铺密度"和"咖啡馆作为公共空间"的用法。</small>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="facet">
+    <div class="badge">④</div>
+    <div class="body">
+      <h3>艺术与展演 · 文化的双向流动，而且是常态的</h3>
+      <p>西岸美术馆与法国蓬皮杜中心的展陈合作、上海博物馆东馆、上海当代艺术博物馆（PSA，由老电厂改造）、余德耀美术馆——上海的艺术生态是<b>有常规国际对话的</b>，不是偶尔来一次巡演。</p>
+      <p>和平饭店的老年爵士乐队（1980 年组建）是中国最完整的一支老爵士乐团；此外还有 JZ Club 的现场爵士、上海交响乐团音乐厅。赛事方面有 F1 中国大奖赛（上海国际赛车场，2004 年起）和 ATP1000 上海网球大师赛。</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="facet">
+    <div class="badge">⑤</div>
+    <div class="body">
+      <h3>全球连接 · 门槛最低、也最容易验证的那个信号</h3>
+      <p>浦东 + 虹桥双机场，年旅客吞吐量位居世界城市前列；<b>240 小时（10 天）过境免签</b>政策适用国家已增至 57 国、可从 65 个对外开放口岸入境——这是中国最宽松的政策之一，上海是最主要的落地城市。</p>
+      <p>加上洋山深水港（集装箱吞吐量多年世界第一）、进博会、以及迪士尼（2016 年开园，全球唯一建在中国大陆的迪士尼乐园）。<b>你们这次从浦东进、虹桥出，本身就在走这条"全球连接"的动线。</b></p>
+    </div>
+  </div>
+</div>
+
+<h2>🏛 上海必去全清单（先不考虑时间 / 人数 / 预算）</h2>
+<div class="card" style="background:#fbfcfe;">
+  <p style="font-size:14.2px;color:var(--sub);">这一层是"<b>如果时间无限、想一次看全上海</b>"的完整清单，先把该去的地方列全，再往下看"你们的 5 天实际能装下什么"。<b>带 ★ 的是上海独有或别处难替代的</b>；纯属可选的已标注。</p>
+  <div class="lg"><span><b>★</b> 上海独有 / 别处难替代</span><span><b>🚩</b> 第一次来必看</span><span><b>👶</b> 3–6 岁友好</span></div>
+</div>
+
+<div class="fullgrid">
+  <div class="fbox">
+    <h4>① 城市名片 · 必看级</h4>
+    <ul>
+      <li><b>★🚩 外滩万国建筑群</b>——傍晚 19:00 灯光全开最震撼</li>
+      <li><b>★🚩 陆家嘴天际线</b>（从外滩看 + 从陆家嘴回看，两个角度都要）</li>
+      <li>上海中心 118 层观光厅（546 米）／东方明珠 259m 玻璃廊 <b>👶</b>（二选一）</li>
+      <li><b>🚩 豫园 + 城隍庙</b>——江南园林 + 老城厢小吃</li>
+      <li><b>🚩 南京路步行街</b>（配大壶春生煎）</li>
+      <li><b>★ 外滩源 · 圆明园路</b> + 外白渡桥 + 苏州河口——人少一半的外滩</li>
+      <li>田子坊 / 新天地 / 张园（石库门改造，三选一）</li>
+      <li><b>★ 武康路 · 武康大楼</b> + 衡复风貌区（邬达克建筑群）</li>
+      <li>思南公馆 / 愚园路 / 巨鹿路（梧桐老洋房）</li>
+      <li>世博文化公园 · 双子山（2024 新地标，免费）</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>② 博物馆与美术馆</h4>
+    <ul>
+      <li><b>★ 上海博物馆东馆</b>——青铜馆（大克鼎）；常设展免费</li>
+      <li>上博人民广场馆（美洲文明大展期间全馆需购票）</li>
+      <li><b>★👶 上海自然博物馆</b>——26 米恐龙骨架 + 化石挖掘体验</li>
+      <li><b>★👶 上海科技馆</b>——2026/5 焕新重开，<b>"一米世界"专为 3–8 岁</b>设计</li>
+      <li><b>★ 上海天文馆</b>（临港，全球最大天文馆之一，票极难抢）</li>
+      <li>上海当代艺术博物馆 PSA（老电厂改造）</li>
+      <li><b>★ 西岸美术馆</b>（与蓬皮杜合作）+ 油罐艺术中心 + 龙美术馆（徐汇滨江一线）</li>
+      <li>中华艺术宫（原世博中国馆）／上海城市规划展示馆</li>
+      <li>四行仓库 / 中共一大会址 / 犹太难民纪念馆（历史线）</li>
+      <li>上海邮政博物馆（苏州河畔异形大楼）</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>③ 江南园林与古寺</h4>
+    <ul>
+      <li>豫园（最方便，人最多；最好 10:00 前入园）</li>
+      <li><b>★ 古猗园</b>（南翔，明代园林 + 南翔小笼原产地）</li>
+      <li>秋霞圃 + 嘉定州桥老街</li>
+      <li><b>★ 静安寺</b>——市中心金顶，现代与古刹的反差感</li>
+      <li><b>★ 龙华寺 + 龙华塔</b>（三国古刹）</li>
+      <li>玉佛寺 / 真如寺 / 桂林公园（黄金荣私家花园）</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>④ 水乡与近郊（半天 – 一天）</h4>
+    <ul>
+      <li><b>★ 朱家角</b>——地铁 17 号线直达，最方便的水乡</li>
+      <li>七宝老街（9 号线，最近的老街）</li>
+      <li>新场 / 召稼楼 / 枫泾（更原始、人更少）</li>
+      <li><b>★ 崇明岛</b>：东平国家森林公园 + 西沙湿地——上海唯一的"野生"</li>
+      <li>临港线：天文馆 + 滴水湖 + 南汇嘴观海公园</li>
+      <li>松江线：辰山植物园 + 广富林遗址（水下博物馆）+ 佘山天文台</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>⑤ 现代都市体验（上海特有）</h4>
+    <ul>
+      <li><b>★ 磁浮列车</b>——最高 430km/h，浦东机场→龙阳路 8 分钟 <b>👶</b></li>
+      <li><b>★ 外滩 ¥2 轮渡</b>——性价比之王，孩子最爱 <b>👶</b></li>
+      <li>黄浦江夜游船（游客版，排队久）</li>
+      <li>滨江步道：徐汇滨江 / 杨浦滨江 / 浦东东岸</li>
+      <li>苏州河游船 + 四行仓库段</li>
+      <li><b>★👶 上海迪士尼</b>（中国内地唯一）</li>
+      <li>海昌海洋公园 <b>👶</b> / 上海野生动物园 <b>👶</b></li>
+      <li>上海马戏城《ERA 时空之旅》／上海国际赛车场（F1）</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>⑥ 演出与音乐现场</h4>
+    <ul>
+      <li><b>★ 和平饭店 · 老年爵士乐队</b>（1980 年组建，需订位）</li>
+      <li>JZ Club / 林肯爵士乐上海中心</li>
+      <li>上海交响乐团音乐厅 / 上海大剧院 / 文化广场</li>
+      <li>脱口秀（笑果等）/ 上海话剧艺术中心</li>
+      <li class="s">这类都是夜间场，带 3 岁娃基本只能"大人轮流去"。</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>⑦ 必吃（上海特有）</h4>
+    <ul>
+      <li>生煎（大壶春 / 小杨）· 小笼（南翔 / 莱莱）</li>
+      <li>本帮菜：红烧肉 / 响油鳝糊 / 腌笃鲜 / 草头圈子</li>
+      <li>面：葱油拌面 / 辣肉面 / 大排面</li>
+      <li>排骨年糕（鲜得来）· 四大金刚早餐</li>
+      <li>点心：鲜肉月饼（光明邨）/ 蝴蝶酥（国际饭店）/ 梨膏糖 / 蟹壳黄 / 沈大成糕团</li>
+      <li>美食街：云南南路 / 黄河路 / 吴江路 / 昌里路</li>
+    </ul>
+  </div>
+
+  <div class="fbox">
+    <h4>⑧ 带 3–6 岁娃的优先级 Top 8</h4>
+    <ul>
+      <li>① 迪士尼 → ② 上海科技馆"一米世界" → ③ 自然博物馆</li>
+      <li>④ 海昌海洋公园 → ⑤ 上海野生动物园 → ⑥ 天文馆</li>
+      <li>⑦ 东方明珠／上海中心登高 → ⑧ 磁浮 + ¥2 轮渡</li>
+      <li class="s">判断标准很简单：能"动手 + 能动"的排在前面，纯看的排后面。</li>
+    </ul>
+  </div>
+</div>
+
+<h2>🗓 你们的 5 日游 vs 全清单（含娃 + 国庆人流）</h2>
+<div class="card" style="background:#fbfcfe;">
+  <p style="font-size:14.2px;color:var(--sub);"><b>已确定的安排一律不动</b>——这一节只做两件事：① 把全清单逐项对照你们行程，看漏了什么；② 只在你们<b>已有的空档</b>里给增量建议，不重排任何一天。</p>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden;">
+  <table>
+    <tr><th style="width:210px;">全清单里的项目</th><th>你们的安排</th><th style="width:104px;">结论</th></tr>
+    <tr><td><b>★ 外滩万国建筑群</b></td><td>10/3 18:00 看日落 → 19:00–20:30 夜景</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td><b>★ 陆家嘴天际线</b></td><td>10/3 从外滩看对岸灯光 + 10/5 15:00 滨江步道（两个角度都有）</td><td class="nw"><span class="st ok">✓ 双视角</span></td></tr>
+    <tr><td>上海中心 118 层／东方明珠玻璃廊</td><td>10/5 15:00–16:30 视孩子状态决定</td><td class="nw"><span class="st add">⭕ 空档可加</span></td></tr>
+    <tr><td>豫园 + 城隍庙</td><td>10/3 10:00–12:00（比 90% 的游客到得早）</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td>南京路步行街</td><td>10/3 16:30 逛吃 + 10/5 买手信</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td><b>★ 外滩源 · 圆明园路</b></td><td>未排（就在外滩北端，10/3 顺路）</td><td class="nw"><span class="st add">⭕ 零成本加</span></td></tr>
+    <tr><td>武康路 + 衡复风貌区</td><td>10/4 09:30–11:00</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td>新天地 / 田子坊（石库门）</td><td>10/4 15:30–17:30</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td>静安寺</td><td>10/4 17:30–18:30</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td><b>★👶 迪士尼</b></td><td>10/2 早鸟全天 + 10/1 酒店亲子日</td><td class="nw"><span class="st ok">✓ 超额完成</span></td></tr>
+    <tr><td><b>★👶 自然博物馆</b></td><td>10/5 09:00–12:00（票 9/28 09:00 抢）</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td><b>★👶 上海科技馆"一米世界"</b></td><td>未排——2026/5 才焕新重开，专为 3–8 岁设计</td><td class="nw"><span class="st add">⭕ 强烈可加</span></td></tr>
+    <tr><td><b>★ 上海博物馆东馆</b></td><td>未排——免预约，2 号线上海科技馆站，离陆家嘴 3 站</td><td class="nw"><span class="st add">⭕ 顺路可加</span></td></tr>
+    <tr><td>¥2 轮渡（替代黄浦江游船）</td><td>10/3 19:00 已排</td><td class="nw"><span class="st ok">✓ 聪明替代</span></td></tr>
+    <tr><td>滨江步道</td><td>10/5 15:00 陆家嘴滨江</td><td class="nw"><span class="st ok">✓ 部分覆盖</span></td></tr>
+    <tr><td>本帮菜正餐 + 生煎/小笼/蝴蝶酥</td><td>10/4 晚 + 必吃清单</td><td class="nw"><span class="st ok">✓ 已覆盖</span></td></tr>
+    <tr><td>和平饭店老年爵士</td><td>未排（10/3 外滩步行可达）</td><td class="nw"><span class="st add">⭕ 大人轮流去</span></td></tr>
+    <tr><td>上海天文馆 / 海昌海洋公园 / 野生动物园</td><td>未排（方案 B 里野生动物园是备选）</td><td class="nw"><span class="st no">⚪ 本次放弃</span></td></tr>
+    <tr><td>朱家角等水乡</td><td>方案 C 备选</td><td class="nw"><span class="st no">⚪ 本次放弃</span></td></tr>
+    <tr><td>磁浮列车</td><td>未排（只在浦东机场↔龙阳路之间）</td><td class="nw"><span class="st no">⚪ 本次放弃</span></td></tr>
+    <tr><td>苏州河 / 四行仓库 / 历史纪念馆线</td><td>未排</td><td class="nw"><span class="st no">⚪ 本次放弃</span></td></tr>
+    <tr><td>ERA 马戏 / 脱口秀 / 音乐会</td><td>未排</td><td class="nw"><span class="st no">⚪ 本次放弃</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <p style="font-size:15px;"><b>覆盖度小结（这就是你要的"我们的行程好不好"）：</b></p>
+  <ul class="food" style="margin-top:8px;">
+    <li><b>🚩 第一次来必看级 8 项：覆盖 8/8。</b>外滩、陆家嘴、豫园、南京路、迪士尼、武康路、石库门、静安寺一个没漏。</li>
+    <li><b>★ 上海独有级约 15 项：覆盖 11 项</b>（外滩/陆家嘴/轮渡/武康路/迪士尼/自然博物馆/新天地/静安寺/豫园/外滩夜景/本帮菜）。</li>
+    <li><b>放弃的 5 项都是"合理放弃"</b>：水乡、天文馆、海昌、磁浮、演出——共同点是<b>单程 1–2.5 小时、或与娃的作息直接冲突</b>，在国庆人流下只会变成"排队 2 小时看 20 分钟"。</li>
+    <li><b>真正的缺口只有一个：玩具/互动类科技馆。</b>上海科技馆 2026 年 5 月刚焕新重开，里面"一米世界"是专为 3–8 岁做的展区——这恰好是你们 3 岁和 6 岁最吃的一类，而你们目前没排。</li>
+    <li><b>整体评价：结构完整、节奏留了午休、动线没有来回折返，属于"高分带娃方案"。</b>唯一可以再优化的，就是 10/5 上午的选择题（见下）。</li>
+  </ul>
+</div>
+
+<div class="card lead">
+  <p style="font-size:15px;"><b>⏩ 四个"零改动"增量建议（只填空档，不动已定行程）</b></p>
+  <ul class="food" style="margin-top:8px;">
+    <li><b>1）10/3 外滩段加一站「外滩源 · 圆明园路」</b>：19:00 前从南京路往北走到圆明园路，再折回外滩看夜景，<b>不多花时间</b>，人少一半、老建筑更完整。</li>
+    <li><b>2）10/5 上午备一个 Plan B（最值得考虑的一条）</b>：如果 9/28 09:00 没抢到自然博物馆的票，<b>直接改成「上海科技馆（一米世界）+ 上博东馆」</b>——两馆都在地铁 2 号线世纪大道站一带，逛完直接坐 2 号线去陆家嘴（3 站），动线和原计划完全兼容。自然博物馆抢到了就按原计划走，不加戏。</li>
+    <li><b>3）10/5 的 1.5 小时空档</b>：上海中心 118 层 或 东方明珠玻璃廊<b>二选一</b>（两项都上会太赶）。3 岁建议留在普通层，一个大人带 6 岁上玻璃廊/观光厅，另一个大人陪 3 岁。</li>
+    <li><b>4）10/4 晚的爵士乐</b>：真想去就电话确认当晚场次，吃完本帮菜（20:30）后两位大人轮流去，另一位在酒店看娃 —— <b>别为一支乐队打乱娃的作息</b>，它不是必选项。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <p style="font-size:15px;"><b>🎁 如果以后还能多一天（下次来上海时）</b></p>
+  <ul class="food" style="margin-top:8px;">
+    <li><b>亲子向（半天）：</b>上海科技馆"一米世界" + 上博东馆 + 陆家嘴，全在地铁 2 号线一条线上，室内为主、不怕下雨。</li>
+    <li><b>水乡向（一天）：</b>朱家角古镇（17 号线直达）＋ 苏州河/四行仓库段。</li>
+    <li><b>野趣向（一天）：</b>崇明东平国家森林公园（或上海野生动物园 + 海昌海洋公园）。</li>
+    <li><b>演出向（一晚）：</b>上海马戏城《ERA 时空之旅》＋ 外滩源散步。</li>
+  </ul>
+</div>
+
+<h2>🎯 必去清单：大人一栏 / 小孩一栏（按五个切面分）</h2>
+<div class="card" style="background:#fbfcfe;">
+  <p style="font-size:14.2px;color:var(--sub);">标注说明：<span class="ok">✓ 已在你们的行程里</span> ｜ <span class="add">＋ 需要另外加</span>。带娃的核心判断标准只有一个——<b>大人觉得"值"的点，和小孩觉得"好玩"的点，往往不是同一个</b>，所以分两栏列；两条线重合的地方（外滩轮渡、磁浮、自然博物馆）就是全家都满意的答案。</p>
+</div>
+
+<div class="card">
+  <div class="fe">① 建筑 · 一江两岸</div>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人必去</h4>
+      <ul>
+        <li><b>外滩万国建筑群</b>（傍晚灯光全开最震撼）<span class="m">✓ 10/3 已在行程</span></li>
+        <li><b>外滩源 · 圆明园路</b>——老领事馆片区，人少一半、更出片<span class="m">＋ 10/3 顺路，多走 15 分钟</span></li>
+        <li><b>和平饭店大堂</b>（装饰艺术风格天花板值得进去看一眼，不进也行）<span class="m">＋ 南京路尽头，免费</span></li>
+        <li><b>上海中心 118 层观光厅</b>（546 米，看整个上海）<span class="m">＋ 10/5 陆家嘴时段，¥180</span></li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩必去</h4>
+      <ul>
+        <li><b>¥2 轮渡过江</b>——从江面看两边"老房子 vs 高楼"，比游船有趣还便宜<span class="m">✓ 10/3 已安排</span></li>
+        <li><b>东方明珠 259 米悬空玻璃廊</b>——6 岁会兴奋到尖叫；3 岁可能怕高，建议一大人陪在普通层<span class="m">＋ 替代上海中心，更"刺激"</span></li>
+        <li><b>让孩子在外滩数"哪栋楼最像外国房子"</b>（圆顶、钟楼、尖顶）——零成本、最有效的一课<span class="m">✓ 10/3 现场就能做</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="fe">② 商业 · 全球总部与百年百货</div>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人必去</h4>
+      <ul>
+        <li><b>南京西路商圈</b>（静安嘉里中心 / 恒隆）——外企总部最密的地方，顺手逛<span class="m">＋ 10/4 静安寺时段可顺路</span></li>
+        <li><b>张园 / 新天地</b>——石库门改造的高端商业，看"老房子怎么变成奢侈品店"<span class="m">✓ 10/4 新天地已在行程</span></li>
+        <li><b>THE PRESS 申报馆店</b>（南京东路，老报馆里的咖啡馆，外籍客人占一半）<span class="m">＋ 10/3 南京路顺路</span></li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩必去</h4>
+      <ul>
+        <li><b>南京东路的旗舰店巡礼</b>（潮玩、玩具、糖果店）——娃的"补给站"<span class="m">✓ 10/3 南京路已安排</span></li>
+        <li><b>玩具总动员酒店内的草莓熊百货</b>——发箍、玩偶比乐园内便宜且不排队<span class="m">✓ 10/1 晚酒店里就能买</span></li>
+        <li><b>迪士尼小镇世界商店</b>（免费不进园）<span class="m">✓ 10/1 傍晚已安排</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="fe">③ 街区生活 · 全球咖啡馆最多的城市</div>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人必去</h4>
+      <ul>
+        <li><b>武康路 + 安福路 City Walk</b>——梧桐老洋房、买手店、咖啡馆，上海最"国际"的一段日常<span class="m">✓ 10/4 已在行程</span></li>
+        <li><b>永康路</b>——600 米近 30 家咖啡馆，独立咖啡的"黄埔军校"就在这<span class="m">＋ 10/4 与武康路同一片区，顺路</span></li>
+        <li><b>古北 / 碧云国际社区</b>（90 年代成形的外籍社区）——想看清楚"国际社区长什么样"再去；纯游客可跳过<span class="m">＋ 需专程，时间紧就别去</span></li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩必去</h4>
+      <ul>
+        <li><b>静安雕塑公园草坪</b>——就在自然博物馆旁边，看完恐龙直接放电<span class="m">✓ 10/5 顺路</span></li>
+        <li><b>徐汇滨江 / 西岸草坪</b>——滑板场、江边跑道，比弄堂更适合撒野<span class="m">＋ 若换西岸美术馆就去</span></li>
+        <li><b>田子坊 / 新天地挑小纪念品</b>——给娃一笔小额预算让他自己挑，参与感最强<span class="m">✓ 10/4 已在行程</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="fe">④ 艺术展演 · 有常规国际对话的那一层</div>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人必去</h4>
+      <ul>
+        <li><b>上博东馆 · 青铜馆</b>（大克鼎、牺尊；常设展免费、现在免预约）<span class="m">＋ 2 号线上海科技馆站，离陆家嘴 3 站</span></li>
+        <li><b>西岸美术馆</b>（与法国蓬皮杜合作）或 <b>PSA 当代艺术博物馆</b>（老电厂改造）<span class="m">＋ 替换 10/4 下午，2–3 小时</span></li>
+        <li><b>和平饭店 · 老年爵士乐队</b>（1980 年组建，巴黎纽约之外少有）<span class="m">＋ 10/3 外滩夜景后就近，需订位</span></li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩必去</h4>
+      <ul>
+        <li><b>上海自然博物馆</b>——26 米长恐龙骨架，"化石挖掘"体验 6 岁刚好（限 1.0–1.3 米，3 岁玩不了）<span class="m">✓ 10/5 已安排，票 9/28 09:00 抢</span></li>
+        <li><b>上博东馆 · 探索宫 / 数字体验区</b>——互动性强、适合娃，需单独预约<span class="m">＋ 和大人逛青铜馆同馆分头行动</span></li>
+        <li><b>上海天文馆</b>（临港）——娃会疯，但市区过去 2.5 小时车程、票极难抢<span class="m">＋ 国庆不建议，留给下次</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="fe">⑤ 全球连接 · 门槛最低的信号</div>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人必去</h4>
+      <ul>
+        <li><b>浦东 + 虹桥双机场</b>——你们本来就要各走一次，本身就是这个切面的一部分<span class="m">✓ 10/1 浦东进、10/5 虹桥出</span></li>
+        <li><b>进博会"四叶草"国家会展中心</b>（仅会期开放参观）<span class="m">＋ 非会期就只能看外观，不建议专程</span></li>
+        <li>看一眼<b>陆家嘴的外资银行招牌</b>——判断"国际都市"最直白的证据<span class="m">✓ 10/5 已安排</span></li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩必去</h4>
+      <ul>
+        <li><b>磁浮列车</b>——最高时速 300 公里（部分班次 430），浦东机场 → 龙阳路只要 8 分钟，¥50/人<span class="m">＋ 只在浦东机场↔龙阳路之间；你们行李多，想体验就 10/1 落地后坐一段</span></li>
+        <li><b>迪士尼</b>——全球文化产品在中国最完整的一次落地<span class="m">✓ 10/2 全天</span></li>
+        <li>机场里找<b>自己城市飞来的飞机</b>、数登机口的国际航班<span class="m">✓ 免费，返程路上就能玩</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card lead">
+  <p><b>⏱ 如果每个切面只留一个点：</b></p>
+  <div class="duo">
+    <div class="col a">
+      <h4>👤 大人版 Top 3</h4>
+      <ul>
+        <li><b>① 外滩 + 陆家嘴对照</b>（10/3 傍晚，一次看全 100 年的两种开放）</li>
+        <li><b>② 武康路 / 永康路</b>（10/4，最"国际"的城市日常）</li>
+        <li><b>③ 上博东馆 或 和平饭店爵士</b>（二选一，前者看文物、后者听声音）</li>
+      </ul>
+    </div>
+    <div class="col k">
+      <h4>🧒 小孩版 Top 3</h4>
+      <ul>
+        <li><b>① 迪士尼</b>（10/2，无可替代）</li>
+        <li><b>② 自然博物馆 · 化石挖掘体验</b>（10/5，比看展更让 6 岁上头）</li>
+        <li><b>③ ¥2 轮渡 或 磁浮列车</b>（一个看城市、一个感受速度，都便宜得离谱）</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:12px;font-size:13.6px;color:var(--sub);">一句话执行法：<b>大人想看的点，尽量塞进"娃睡着/午休/酒店泳池"的时段；娃要玩的点，尽量放在上午精力高峰。</b>两栏重合的（外滩轮渡、磁浮、自然博物馆）就是全家最不会吵架的安排。</p>
+</div>
+
+<h2>📍 落到你们的行程（10/1 – 10/5）</h2>
+<div class="card" style="padding:0;overflow:hidden;">
+  <table>
+    <tr><th style="width:78px;">日期</th><th>行程里的国际化看点</th><th style="width:190px;">想再补一层可以加什么</th></tr>
+    <tr>
+      <td class="d">10/1</td>
+      <td>浦东机场落地 → 玩具总动员酒店：迪士尼是全球文化产品在中国最完整的一次本地化落地</td>
+      <td class="opt">—（到店休整）</td>
+    </tr>
+    <tr>
+      <td class="d">10/2</td>
+      <td>迪士尼全天：唯一把全球顶级乐园形态直接搬过来的中国城市地标</td>
+      <td class="opt">—（全天在园）</td>
+    </tr>
+    <tr>
+      <td class="d">10/3</td>
+      <td>傍晚外滩：<b>万国建筑群（被动开放）+ 对岸陆家嘴三件套（主动开放）一次全看</b>——全场最集中的一处对照</td>
+      <td class="opt">外滩源/和平饭店外观（就在南京路尽头步行范围内，顺路）</td>
+    </tr>
+    <tr>
+      <td class="d">10/4</td>
+      <td>武康路 / 新天地 / 田子坊：街区生活与石库门再生，即切面 ③</td>
+      <td class="opt">把午休后的时段换成 <b>西岸美术馆 / 油罐艺术中心</b>（徐汇滨江，2–3 小时）</td>
+    </tr>
+    <tr>
+      <td class="d">10/5</td>
+      <td>陆家嘴滨江步道：全球资本的物理聚集体，也是对岸回看外滩最好的角度</td>
+      <td class="opt">晚上在 <b>和平饭店听老年爵士乐队</b>（需看当晚场次，通常 21:00 前结束，与 22:00 虹桥航班不冲突）</td>
+    </tr>
+  </table>
+</div>
+
+<h2>🧮 数据速览（可用来跟孩子聊）</h2>
+<div class="chips">
+  <div class="chip"><b>57 国</b>240 小时过境免签适用国家数，65 个口岸可入境</div>
+  <div class="chip"><b>10336 家</b>上海咖啡馆门店数（2025），全球城市第一</div>
+  <div class="chip"><b>632 米</b>上海中心高度，中国第一高、世界第二高</div>
+  <div class="chip"><b>2 座</b>浦东 + 虹桥双机场，另有洋山深水港</div>
+  <div class="chip"><b>1923 / 1929 / 1937</b>外滩汇丰、和平饭店、中国银行大楼落成年份</div>
+  <div class="chip"><b>2004 / 2016</b>F1 中国大奖赛开赛、上海迪士尼开园</div>
+</div>
+
+<h2>➕ 想再补一层：两个可选加项</h2>
+<div class="addon">
+  <div class="card">
+    <h3>A. 西岸美术馆 / 油罐艺术中心</h3>
+    <p>徐汇滨江，一次 2–3 小时，室内为主、有草坪可跑——<b>适合替换 10/4 下午的新天地时段</b>（对娃来说，草地和场馆比逛弄堂更放电）。</p>
+    <small>交通：从万豪打车约 25 分钟；需提前查当期展览与预约要求。</small>
+  </div>
+  <div class="card">
+    <h3>B. 和平饭店 · 老年爵士乐队</h3>
+    <p>南京东路尽头的和平饭店一楼爵士吧，是巴黎、纽约之外少有的一支完整老爵士乐团，1980 年组建至今。<b>可放在 10/3 外滩夜景之后</b>（就在步行范围），或 10/5 晚离开前。</p>
+    <small>提醒：需提前订位；带 3 岁娃注意音量与时长，建议两位大人轮流去、另一位在酒店带娃。</small>
+  </div>
+</div>
+
+<h2>👶 怎么讲给孩子听（3 个可现场提问的点）</h2>
+<div class="card">
+  <ul class="food">
+    <li>在外滩，让孩子找一找<b>哪一栋楼最多"外国样子"</b>（圆顶、钟楼、尖顶），告诉他"100 年前这里是各国银行"。</li>
+    <li>坐 ¥2 轮渡过江时问：<b>"刚才那片全是老房子，现在这片全是高楼，为什么？"</b>——答案就是被动开放和主动开放。</li>
+    <li>在武康路买杯咖啡时数一数：<b>这条街 100 米内有几家咖啡馆？</b>顺手告诉他上海是全世界咖啡馆最多的城市。</li>
+  </ul>
+</div>
+
+<footer>
+  <p>延伸阅读 · 与《上海 5 日游行程规划（亲子版 v9）》配套 · 2026年9月24日 · 数据以官方最新公布为准</p>
+  <p style="margin-top:6px;"><a href="上海5日游行程规划-10月2日至6日.html">← 返回行程规划</a></p>
+</footer>
+</div>
+</body>
+</html>

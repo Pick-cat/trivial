@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>上海 5 日游 · 行程地图（10/1–10/5）</title>
+<style>
+  :root{
+    --ink:#1b2434; --ink2:#5b6678; --line:#e8ebf1; --bg:#f6f7fb; --card:#ffffff;
+    --d1:#2f6fed; --d2:#ef9f18; --d3:#e0483c; --d4:#12a06a; --d5:#7b5cf0; --alt:#8a94a6;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);}
+
+  header{padding:18px 22px 14px;background:linear-gradient(180deg,#fff, #fbfcff);border-bottom:1px solid var(--line);}
+  .topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:11px;}
+  .backlink{display:inline-block;font-size:13px;color:var(--d1);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 14px;}
+  .backlink:hover{border-color:var(--d1);background:#fbfcff;}
+  .backlink.ghost{color:var(--ink2);}
+  .backlink.ghost:hover{border-color:#cfd7e6;}
+  .tag{display:inline-block;font-size:11.5px;letter-spacing:.08em;color:#fff;background:var(--d1);border-radius:20px;padding:3px 12px;margin-bottom:8px;}
+  h1{margin:0 0 6px;font-size:22px;letter-spacing:.5px;}
+  header p{margin:0;font-size:13px;color:var(--ink2);line-height:1.7;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:11px;}
+  .lg{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink2);}
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+
+  main{display:grid;grid-template-columns:346px 1fr;min-height:0;}
+  aside{background:var(--card);border-right:1px solid var(--line);overflow-y:auto;padding:14px 14px 40px;}
+  .filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+  .fbtn{font-size:12.5px;border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:20px;padding:5px 11px;cursor:pointer;font-family:inherit;}
+  .fbtn:hover{border-color:#cfd7e6;}
+  .fbtn.on{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .hint{font-size:12px;color:#93a0b4;line-height:1.6;margin:9px 0 12px;padding-left:2px;}
+  .group{margin-bottom:16px;}
+  .ghead{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;margin:0 0 8px;padding:0 2px;}
+  .ghead .bar{width:4px;height:15px;border-radius:3px;}
+  .item{display:flex;gap:9px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:7px;cursor:pointer;transition:.15s;}
+  .item:hover{border-color:#c9d6f2;background:#fbfcff;transform:translateX(2px);}
+  .item.on{border-color:var(--d1);box-shadow:0 0 0 2px rgba(47,111,237,.12);}
+  .inum{flex:0 0 22px;height:22px;border-radius:50%;color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .ibody{min-width:0;flex:1;}
+  .iname{font-size:13.5px;font-weight:600;line-height:1.45;}
+  .isub{font-size:12px;color:var(--ink2);line-height:1.6;margin-top:2px;}
+  .itime{display:inline-block;font-size:11px;color:#fff;border-radius:5px;padding:1px 6px;margin-right:5px;vertical-align:1px;}
+  .nav{display:inline-block;font-size:11.5px;color:var(--d1);text-decoration:none;margin-top:4px;}
+  .nav:hover{text-decoration:underline;}
+
+  section.mapwrap{position:relative;background:#eef1f7;height:calc(100vh - 252px);min-height:400px;}
+  #map{width:100%;height:100%;}
+  #status{position:absolute;left:12px;bottom:12px;z-index:20;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:12px;color:var(--ink2);box-shadow:0 4px 14px rgba(20,35,80,.08);}
+  .mapbtns{position:absolute;right:12px;top:12px;z-index:20;display:flex;gap:7px;}
+  .mbtn{font-size:12.5px;font-family:inherit;border:1px solid var(--line);background:rgba(255,255,255,.96);color:var(--ink);border-radius:8px;padding:6px 11px;cursor:pointer;box-shadow:0 3px 10px rgba(20,35,80,.08);}
+  .mbtn:hover{border-color:#c9d6f2;}
+
+  .iw{padding:2px 2px 4px;max-width:250px;font-family:inherit;}
+  .iw h4{margin:0 0 5px;font-size:14px;}
+  .iw p{margin:0;font-size:12.5px;color:#40495a;line-height:1.65;}
+  .iw a{display:inline-block;margin-top:7px;font-size:12px;color:var(--d1);}
+
+  footer{padding:9px 22px 26px;font-size:12px;color:#93a0b4;line-height:1.7;background:var(--bg);}
+
+  @media(max-width:880px){
+    main{grid-template-columns:1fr;}
+    aside{order:2;border-right:none;border-top:1px solid var(--line);max-height:none;overflow:visible;}
+    section.mapwrap{order:1;height:52vh;min-height:320px;}
+    h1{font-size:19px;}
+  }
+</style>
+<!-- 1. 加载 SDK 前先配置代理（密钥代理模式，前端不出现任何 key） -->
+<script type="text/javascript">
+  window._TMapSecurityConfig = {
+    serviceHost: 'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__',
+  };
+</script>
+<!-- 2. 从官方 CDN 加载 SDK，不带 key 参数 -->
+<script src="https://map.qq.com/api/gljs?v=1.exp&libraries=service"></script>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <a class="backlink" href="上海5日游行程规划-10月2日至6日.html">← 返回行程规划</a>
+    <a class="backlink ghost" href="shanghai-global-city.html">🌍 上海国际都市解读</a>
+  </div>
+  <span class="tag">SHANGHAI · 2026 国庆 · 亲子版 · 行程地图</span>
+  <h1>🗺 上海 5 日游 · 地点地图</h1>
+  <p>10月1日（周四）— 10月5日（周一）｜ 长沙 ⇄ 上海 ｜ 4 大人 + 6 岁×2 + 3 岁×1（共 7 人）<br>
+     点击左侧任一点位即可在地图上定位；虚线为当天动线示意。底图与坐标由腾讯地图提供。</p>
+  <div class="legend">
+    <span class="lg"><i class="dot" style="background:var(--d1)"></i>10/1 抵沪日</span>
+    <span class="lg"><i class="dot" style="background:var(--d2)"></i>10/2 迪士尼全天</span>
+    <span class="lg"><i class="dot" style="background:var(--d3)"></i>10/3 浦西经典线</span>
+    <span class="lg"><i class="dot" style="background:var(--d4)"></i>10/4 梧桐区漫步</span>
+    <span class="lg"><i class="dot" style="background:var(--d5)"></i>10/5 收尾返程</span>
+    <span class="lg"><i class="dot" style="background:var(--alt)"></i>备选 / Plan B</span>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <div class="filters" id="filters"></div>
+    <div class="hint" id="hint">点位坐标默认按预设坐标绘制，加载后会通过腾讯地图做一次地名校准。</div>
+    <div id="list"></div>
+  </aside>
+
+  <section class="mapwrap">
+    <div id="map"></div>
+    <div class="mapbtns">
+      <button class="mbtn" id="btnFit">全程总览</button>
+      <button class="mbtn" id="btnDisney">只看迪士尼</button>
+    </div>
+    <div id="status">地图加载中…</div>
+  </section>
+</main>
+
+<footer>
+  说明：① 迪士尼园区内的点位（疯狂动物城、明日世界、奇想花园）为园内相对位置的示意标注，进园后用迪士尼官方 App 看实时排队与导航；<br>
+  ② 所有点位均为公开景点/公共设施坐标，不涉及个人位置信息；③ 实际出行请以导航 App 的实时路线为准，本页用于行前总览与动线检查。
+  <p style="margin-top:10px;"><a class="backlink" href="上海5日游行程规划-10月2日至6日.html">← 返回行程规划（10/1–10/5 完整版）</a></p>
+</footer>
+
+<script>
+/* ---------- 分组与配色 ---------- */
+const GROUPS = {
+  d1:{label:'10/1 · 抵沪日',       color:'#2f6fed', order:1, pinText:'1'},
+  d2:{label:'10/2 · 迪士尼全天',   color:'#ef9f18', order:2, pinText:'2'},
+  d3:{label:'10/3 · 浦西经典线',   color:'#e0483c', order:3, pinText:'3'},
+  d4:{label:'10/4 · 梧桐区漫步',   color:'#12a06a', order:4, pinText:'4'},
+  d5:{label:'10/5 · 收尾返程',     color:'#7b5cf0', order:5, pinText:'5'},
+  alt:{label:'备选 / Plan B',      color:'#8a94a6', order:6, pinText:'B'},
+};
+
+/* ---------- 点位数据 ----------
+   q    : 腾讯地图检索用的地名（用于校准坐标）
+   base : 以另一个点位的校准结果为基准，再叠加 dx(纬度) / dy(经度) 偏移
+   fb   : 预设坐标 [纬度, 经度]（GCJ-02 示意，网络受限时回退使用）
+   stay : 住宿点，任何筛选下都常显
+*/
+const POIS = [
+  /* 10/1 */
+  {id:'pvg', g:'d1', name:'浦东国际机场 T1', sub:'11:00 落地 → 打车约 40 分钟去酒店', pin:'1',
+   q:'上海浦东国际机场1号航站楼', fb:[31.1450,121.8030]},
+  {id:'hotel_toy', g:'d1', stay:true, name:'玩具总动员酒店', sub:'办理入住 / 寄存行李 · 住客权益：提前 1 小时入园', pin:'宿',
+   q:'上海迪士尼玩具总动员酒店', fb:[31.1435,121.6615]},
+  {id:'disney_town', g:'d1', name:'迪士尼小镇', sub:'免费开放 · 巨萌唐老鸭、世界商店、草莓熊百货', pin:'1',
+   q:'上海迪士尼小镇', fb:[31.1510,121.6520]},
+
+  /* 10/2 */
+  {id:'park', g:'d2', name:'上海迪士尼乐园（正门）', sub:'7:30 前走小镇优先通道入园，多玩 1 小时', pin:'2',
+   q:'上海迪士尼乐园', fb:[31.1460,121.6525]},
+  {id:'zootopia', g:'d2', name:'疯狂动物城 · 热力追踪', sub:'开园第一目标，无身高限制、7 人一起玩', pin:'2',
+   base:'park', dx:0.0028, dy:0.0022, fb:[31.1488,121.6547]},
+  {id:'tron', g:'d2', name:'明日世界 · 创极速光轮', sub:'需 122cm，大人两两轮流（6 岁多半不够高）', pin:'2',
+   base:'park', dx:0.0062, dy:-0.0015, fb:[31.1522,121.6510]},
+  {id:'castle', g:'d2', name:'奇想花园 · 城堡烟花', sub:'20:00 压轴，提前 1 小时占位；3 岁撑不住就先带回', pin:'2',
+   base:'park', dx:0.0012, dy:0.0006, fb:[31.1472,121.6531]},
+  {id:'hotel_marriott', g:'d2', stay:true, name:'雅居乐万豪侯爵酒店', sub:'10/2–10/4 三晚 · 西藏中路 555 号（人民广场站 394 米）', pin:'宿',
+   q:'上海雅居乐万豪侯爵酒店', fb:[31.2385,121.4745]},
+
+  /* 10/3 */
+  {id:'yuyuan', g:'d3', name:'豫园 & 城隍庙', sub:'10:00–12:00 · 九曲桥、江南园林；午餐南翔小笼', pin:'3',
+   q:'上海豫园', fb:[31.2270,121.4920]},
+  {id:'nanjing', g:'d3', name:'南京路步行街', sub:'16:30 逛吃 · 大壶春生煎、沈大成糕团', pin:'3',
+   q:'南京路步行街', fb:[31.2370,121.4830]},
+  {id:'bund_src', g:'d3', name:'外滩源 · 圆明园路', sub:'顺路加：人少一半的万国建筑，拍照更从容', pin:'3',
+   q:'外滩源', fb:[31.2440,121.4890]},
+  {id:'bund', g:'d3', name:'外滩（陈毅广场）', sub:'19:00 灯光全开 · 对岸陆家嘴三件套夜景', pin:'3',
+   q:'上海外滩', fb:[31.2397,121.4909]},
+  {id:'ferry', g:'d3', name:'金陵东路渡口', sub:'¥2 轮渡过江再坐回来，比游船更有趣', pin:'3',
+   q:'金陵东路渡口', fb:[31.2335,121.4930]},
+
+  /* 10/4 */
+  {id:'wukang', g:'d4', name:'武康大楼', sub:'09:30 City Walk 起点 · 梧桐老洋房', pin:'4',
+   q:'武康大楼', fb:[31.2058,121.4370]},
+  {id:'anfu', g:'d4', name:'安福路 / 永康路', sub:'11:30 午餐 · 600 米近 30 家咖啡馆', pin:'4',
+   q:'安福路', fb:[31.2130,121.4440]},
+  {id:'xintiandi', g:'d4', name:'新天地', sub:'15:30 石库门改造街区，慢逛淘物', pin:'4',
+   q:'上海新天地', fb:[31.2215,121.4700]},
+  {id:'tianzifang', g:'d4', name:'田子坊', sub:'弄堂 + 文创小店，给娃挑小纪念品', pin:'4',
+   q:'田子坊', fb:[31.2093,121.4695]},
+  {id:'jingan', g:'d4', name:'静安寺', sub:'17:30 · 金顶夕阳很出片（外观免费）', pin:'4',
+   q:'静安寺', fb:[31.2237,121.4452]},
+  {id:'lanxin', g:'d4', name:'本帮菜晚餐（进贤路）', sub:'18:30 · 红烧肉、响油鳝糊、腌笃鲜', pin:'4',
+   q:'兰心餐厅 进贤路', fb:[31.2205,121.4595]},
+
+  /* 10/5 */
+  {id:'museum', g:'d5', name:'上海自然博物馆', sub:'09:00–12:00 · 提前 7 天 9:00 放票（9/28 抢）', pin:'5',
+   q:'上海自然博物馆', fb:[31.2372,121.4607]},
+  {id:'sculpture', g:'d5', name:'静安雕塑公园', sub:'12:00 后歇脚 · 让娃在草坪放电', pin:'5',
+   q:'静安雕塑公园', fb:[31.2365,121.4615]},
+  {id:'lujiazui', g:'d5', name:'陆家嘴 · 上海中心', sub:'15:00 · 滨江步道 + 118 层观光厅（视娃状态）', pin:'5',
+   q:'上海中心大厦', fb:[31.2354,121.5057]},
+  {id:'oriental', g:'d5', name:'东方明珠', sub:'可与上海中心二选一；259 米玻璃廊大人轮流上', pin:'5',
+   q:'东方明珠广播电视塔', fb:[31.2397,121.4998]},
+  {id:'xianshou', g:'d5', name:'国际饭店（买手信）', sub:'蝴蝶酥、梨膏糖、鲜肉月饼，一次买齐', pin:'5',
+   q:'上海国际饭店', fb:[31.2345,121.4700]},
+  {id:'hongqiao', g:'d5', name:'虹桥国际机场 T2', sub:'19:15 从市区出发 · 22:00 起飞返长沙', pin:'5',
+   q:'上海虹桥国际机场2号航站楼', fb:[31.1975,121.3270]},
+
+  /* 备选 / Plan B */
+  {id:'science', g:'alt', name:'上海科技馆（一米世界）', sub:'Plan B：3–8 岁专区，2026/5 焕新重开', pin:'B',
+   q:'上海科技馆', fb:[31.2247,121.5415]},
+  {id:'museum_e', g:'alt', name:'上海博物馆东馆', sub:'Plan B：散客免预约，刷身份证入馆，离陆家嘴 3 站', pin:'B',
+   q:'上海博物馆东馆', fb:[31.2265,121.5410]},
+];
+
+/* ---------- 当天动线（按行程顺序连线，仅作示意） ---------- */
+const ROUTES = [
+  {g:'d1', ids:['pvg','hotel_toy','disney_town']},
+  {g:'d2', ids:['hotel_toy','park','hotel_marriott']},
+  {g:'d3', ids:['hotel_marriott','yuyuan','nanjing','bund_src','bund','ferry']},
+  {g:'d4', ids:['hotel_marriott','wukang','anfu','xintiandi','tianzifang','jingan','lanxin']},
+  {g:'d5', ids:['hotel_marriott','museum','sculpture','lujiazui','xianshou','hongqiao']},
+];
+
+const byId = {};
+POIS.forEach(p => byId[p.id] = p);
+
+/* ---------- 标记图标：内联 SVG（不使用任何外部图片） ---------- */
+function pinIcon(color, text){
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="34" height="44" viewBox="0 0 34 44">'
+    + '<path d="M17 42.5C17 42.5 31.5 26.6 31.5 16.6C31.5 8.6 25 2.5 17 2.5C9 2.5 2.5 8.6 2.5 16.6C2.5 26.6 17 42.5 17 42.5Z" fill="' + color + '" stroke="#ffffff" stroke-width="2.6"/>'
+    + '<text x="17" y="21.5" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="' + (text.length > 1 ? 11 : 13) + '" font-weight="700" fill="#ffffff">' + text + '</text>'
+    + '</svg>';
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+/* ---------- 地图初始化 ---------- */
+let map, markerLayer, lineLayer, infoWindow;
+const styles = {};
+Object.keys(GROUPS).forEach(g => {
+  styles['g_' + g] = new TMap.MarkerStyle({width:34, height:44, anchor:{x:17, y:44}, src: pinIcon(GROUPS[g].color, GROUPS[g].pinText || String(GROUPS[g].order))});
+});
+/* 住宿点单独一个样式（金色「宿」） */
+styles['g_stay'] = new TMap.MarkerStyle({width:34, height:44, anchor:{x:17, y:44}, src: pinIcon('#c8952b', '宿')});
+const lineStyles = {};
+Object.keys(GROUPS).forEach(g => {
+  lineStyles['l_' + g] = new TMap.PolylineStyle({color: GROUPS[g].color, width: 4, borderWidth: 1.5, borderColor: '#ffffff', lineCap: 'round', dashArray: [8, 8]});
+});
+
+const statusEl = document.getElementById('status');
+let currentFilter = 'all';
+let resolved = 0;
+
+map = new TMap.Map('map', {
+  zoom: 11,
+  center: new TMap.LatLng(31.2100, 121.5300),
+  pitch: 0,
+  rotation: 0,
+});
+window.__map = map;
+
+markerLayer = new TMap.MultiMarker({map: map, styles: styles, geometries: []});
+lineLayer = new TMap.MultiPolyline({map: map, styles: lineStyles, geometries: []});
+infoWindow = new TMap.InfoWindow({map: map, position: new TMap.LatLng(31.23, 121.47), content: '', offset:{x:0, y:-46}});
+infoWindow.close();
+
+/* ---------- 坐标校准：用腾讯地图地名检索覆盖预设坐标 ---------- */
+function applyGeocode(){
+  if (!TMap.service || !TMap.service.Geocoder) { statusEl.textContent = '使用预设示意坐标（检索服务未加载）'; return; }
+  const geocoder = new TMap.service.Geocoder();
+  const queue = POIS.filter(p => p.q && !p.base);
+  let i = 0, done = 0;
+  function next(){
+    if (i >= queue.length){
+      statusEl.textContent = done > 0
+        ? '已用腾讯地图校准 ' + done + ' 个点位坐标'
+        : '使用预设示意坐标（校准未成功，需联网）';
+      render();
+      return;
+    }
+    const p = queue[i++];
+    geocoder.getLocation({address: p.q})
+      .then(res => {
+        const r = res && res.result;
+        let loc = r && (r.location || (r.data && r.data[0] && r.data[0].location));
+        if (loc && typeof loc.lat === 'number'){ p.pos = [loc.lat, loc.lng]; done++; }
+        statusEl.textContent = '坐标校准中… ' + done + '/' + queue.length;
+      })
+      .catch(() => {})
+      .then(() => { setTimeout(next, 110); });
+  }
+  statusEl.textContent = '坐标校准中… 0/' + queue.length;
+  next();
+}
+
+/* ---------- 渲染：按筛选显示标记与动线 ---------- */
+function visibleIds(){
+  const ids = [];
+  POIS.forEach(p => {
+    if (p.stay) return;
+    if (currentFilter === 'all' || p.g === currentFilter) ids.push(p.id);
+  });
+  return ids;
+}
+
+function geomOf(p){
+  let lat, lng;
+  if (p.pos){ lat = p.pos[0]; lng = p.pos[1]; }
+  else if (p.base && byId[p.base]){
+    const b = geomOf(byId[p.base]);
+    lat = b.lat + (p.dx || 0); lng = b.lng + (p.dy || 0);
+  } else { lat = p.fb[0]; lng = p.fb[1]; }
+  return {lat: lat, lng: lng};
+}
+
+function render(){
+  const ids = visibleIds();
+  const marks = [];
+  /* 住宿点常显 */
+  POIS.filter(p => p.stay).forEach(p => {
+    const g = geomOf(p);
+    marks.push({id: p.id, styleId: 'g_stay', position: new TMap.LatLng(g.lat, g.lng)});
+  });
+  ids.forEach(id => {
+    const p = byId[id], g = geomOf(p);
+    marks.push({id: p.id, styleId: 'g_' + p.g, position: new TMap.LatLng(g.lat, g.lng)});
+  });
+  markerLayer.setGeometries(marks);
+
+  const lines = [];
+  ROUTES.forEach(r => {
+    if (currentFilter !== 'all' && r.g !== currentFilter) return;
+    const pts = r.ids.map(id => {
+      const g = geomOf(byId[id]);
+      return new TMap.LatLng(g.lat, g.lng);
+    });
+    lines.push({id: 'line_' + r.g, styleId: 'l_' + r.g, paths: pts});
+  });
+  lineLayer.setGeometries(lines);
+  renderList(ids);
+}
+
+/* ---------- 侧栏列表 ---------- */
+function renderList(ids){
+  const box = document.getElementById('list');
+  box.innerHTML = '';
+  const groups = {};
+  POIS.filter(p => p.stay || ids.indexOf(p.id) >= 0).forEach(p => {
+    (groups[p.g] = groups[p.g] || []).push(p);
+  });
+  Object.keys(GROUPS).forEach(g => {
+    if (!groups[g]) return;
+    const head = document.createElement('div');
+    head.className = 'ghead';
+    head.innerHTML = '<span class="bar" style="background:' + GROUPS[g].color + '"></span>' + GROUPS[g].label;
+    box.appendChild(head);
+    const wrap = document.createElement('div');
+    wrap.className = 'group';
+    groups[g].forEach(p => {
+      const g = geomOf(p);
+      const el = document.createElement('div');
+      el.className = 'item';
+      el.dataset.id = p.id;
+      el.innerHTML =
+        '<span class="inum" style="background:' + GROUPS[g].color + '">' + p.pin + '</span>' +
+        '<span class="ibody"><span class="iname">' + p.name + '</span>' +
+        '<span class="isub">' + p.sub + '</span>' +
+        '<a class="nav" target="_blank" rel="noopener" href="https://uri.amap.com/marker?position=' + g.lng.toFixed(6) + ',' + g.lat.toFixed(6) + '&name=' + encodeURIComponent(p.name) + '&coordinate=gaode&callnative=1">在地图 App 中打开 ↗</a></span>';
+      el.addEventListener('click', () => focusPoi(p.id));
+      wrap.appendChild(el);
+    });
+    box.appendChild(wrap);
+  });
+}
+
+function focusPoi(id){
+  const p = byId[id];
+  if (!p) return;
+  const g = geomOf(p);
+  const url = 'https://uri.amap.com/marker?position=' + g.lng.toFixed(6) + ',' + g.lat.toFixed(6)
+    + '&name=' + encodeURIComponent(p.name) + '&coordinate=gaode&callnative=1';
+  map.setCenter(new TMap.LatLng(g.lat, g.lng));
+  map.setZoom(p.g === 'd2' ? 15 : 14);
+  const html = '<div class="iw"><h4>' + p.name + '</h4><p>' + p.sub + '</p>'
+    + '<a target="_blank" rel="noopener" href="' + url + '">在手机地图中打开导航 ↗</a></div>';
+  try {
+    if (infoWindow) infoWindow.close();
+    if (typeof infoWindow.setContent === 'function' && typeof infoWindow.setPosition === 'function'){
+      infoWindow.setContent(html);
+      infoWindow.setPosition(new TMap.LatLng(g.lat, g.lng));
+    } else {
+      infoWindow = new TMap.InfoWindow({map: map, position: new TMap.LatLng(g.lat, g.lng), content: html, offset:{x:0, y:-46}});
+    }
+    infoWindow.open();
+  } catch(e) {
+    infoWindow = new TMap.InfoWindow({map: map, position: new TMap.LatLng(g.lat, g.lng), content: html, offset:{x:0, y:-46}});
+    infoWindow.open();
+  }
+  document.querySelectorAll('.item').forEach(n => n.classList.toggle('on', n.dataset.id === id));
+}
+
+markerLayer.on('click', evt => {
+  const id = evt.geometry && evt.geometry.id;
+  if (id) focusPoi(id);
+});
+
+/* ---------- 筛选按钮 ---------- */
+(function buildFilters(){
+  const box = document.getElementById('filters');
+  const items = [['all', '全部']].concat(Object.keys(GROUPS).map(g => [g, GROUPS[g].label.replace(' · ', ' ')]));
+  items.forEach(([key, label]) => {
+    const b = document.createElement('button');
+    b.className = 'fbtn' + (key === 'all' ? ' on' : '');
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      currentFilter = key;
+      document.querySelectorAll('.fbtn').forEach(n => n.classList.remove('on'));
+      b.classList.add('on');
+      infoWindow.close();
+      render();
+      fitToCurrent();
+    });
+    box.appendChild(b);
+  });
+})();
+
+function boundsOfCurrent(){
+  const pts = [];
+  POIS.forEach(p => {
+    if (!p.stay && currentFilter !== 'all' && p.g !== currentFilter) return;
+    const g = geomOf(p);
+    pts.push(g);
+  });
+  if (!pts.length) return null;
+  let a = pts[0].lat, b = pts[0].lat, c = pts[0].lng, d = pts[0].lng;
+  pts.forEach(p => { a = Math.min(a, p.lat); b = Math.max(b, p.lat); c = Math.min(c, p.lng); d = Math.max(d, p.lng); });
+  return new TMap.LatLngBounds(new TMap.LatLng(a, c), new TMap.LatLng(b, d));
+}
+
+function fitToCurrent(){
+  const b = boundsOfCurrent();
+  if (!b) return;
+  try { map.fitBounds(b, {padding: 60}); }
+  catch(e){ map.setCenter(new TMap.LatLng(31.21, 121.53)); map.setZoom(currentFilter === 'd2' ? 13 : 11); }
+}
+
+document.getElementById('btnFit').addEventListener('click', () => {
+  currentFilter = 'all';
+  document.querySelectorAll('.fbtn').forEach((n, i) => n.classList.toggle('on', i === 0));
+  render(); fitToCurrent(); infoWindow.close();
+});
+document.getElementById('btnDisney').addEventListener('click', () => {
+  currentFilter = 'd2';
+  document.querySelectorAll('.fbtn').forEach(n => n.classList.toggle('on', n.textContent.indexOf('迪士尼') >= 0));
+  render(); map.setCenter(new TMap.LatLng(31.1465, 121.6550)); map.setZoom(14); infoWindow.close();
+});
+
+/* ---------- 启动 ---------- */
+render();
+fitToCurrent();
+applyGeocode();
+setTimeout(() => { if (statusEl.textContent === '地图加载中…') statusEl.textContent = '地图已加载 · 使用预设示意坐标'; }, 4000);
+</script>
+</body>
+</html>
